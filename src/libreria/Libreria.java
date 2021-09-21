@@ -35,9 +35,9 @@ public class Libreria {
           //  Autor a1 = us.crearAutor("lean", true);
             Autor a2 = us.crearAutor("marco", true);
             Editorial e2 = es.crearEditorial("Marco polo", true);
-
-          //  ls.busLibAutor("lean");
-            ls.crearLibro(a2, e2);
+        //    System.out.println(ls.buscarLibroAutor("marco"));
+      
+            //ls.crearLibro(a2, e2);
 
             //ls.eliminarPorID("bf8ba026-bd8c-40e7-981c-22fc0e1e4e83");
           

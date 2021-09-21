@@ -44,10 +44,16 @@ public class LibroDao {
         return lib;
     }
 
-    public List<Libro> busLibAutor(String nombre) {
-        List<Libro> lib = (List<Libro>) (Libro) em.createQuery("select l from Libro l join Autor a on l.id  = a. where a.nombre= : nombre").setParameter("nombre", nombre).getResultList();
-        return lib;
-    }
+    public List<Libro> buscarLibroAutor(String autor1){
+
+            if(autor1 == null){
+                System.out.println("Debe indicar datos");
+            }
+            List<Libro> libros =  em.createQuery("Select l from Libro l, Autor a where a.nombre = :autor and l.autor.nombre = :autor").setParameter("autor", autor1).getResultList();
+
+            return libros;
+
+}
 
     public void eliminarPorID(String id) throws Exception {
         Libro lib = buscarPorID(id);

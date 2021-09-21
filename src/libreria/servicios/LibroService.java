@@ -76,16 +76,24 @@ public class LibroService {
         }
     }
 
-    public List<Libro> busLibAutor(String nombre) throws Exception {
-        try {
-            List<Libro> libros = ldao.busLibAutor(nombre);
+  public List<Libro> buscarLibroAutor(String autor1){
 
-            return libros;
+        try {
+            if(autor1 == null){
+                System.out.println("Debe indicar autor");
+            }
+            List<Libro> libro = ldao.buscarLibroAutor(autor1);
+
+            if(libro == null){
+                System.out.println("No hay libro para lo buscado");
+            }
+            return libro;
         } catch (Exception e) {
-            System.out.println(e);
-            throw new Exception("error en busLibautor service");
+
         }
-    }
+        return null;
+  }
+    
 
     public Libro buscarID(String id) throws Exception {
         try {
