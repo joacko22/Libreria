@@ -22,7 +22,7 @@ public class LibroService {
     private LibroDao ldao = new LibroDao();
 
     public void crearLibro(Autor a, Editorial edit) throws Exception {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in).useDelimiter("\n");
         try {
             String op;
             do {
@@ -45,8 +45,9 @@ public class LibroService {
                 lib.setEjemplaresRestantes(ejemplaresRestantes);
 
                 lib.setAlta(true);
-
+                 
                 lib.setAutor(a);
+               
                 lib.setEdit(edit);
                 ldao.crearLibro(lib);
                 System.out.println("desea crear mas libros S/N");

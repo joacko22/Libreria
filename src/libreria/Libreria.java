@@ -5,6 +5,7 @@
  */
 package libreria;
 
+import java.util.Scanner;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,6 +25,7 @@ public class Libreria {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
         EntityManager em = emf.createEntityManager();
+         Scanner sc = new Scanner(System.in);
 
         AutorService us = new AutorService();
         LibroService ls = new LibroService();
@@ -31,13 +33,38 @@ public class Libreria {
 
 
         try {
-            //Editorial e = es.crearEditorial("santillan", true);
-          //  Autor a1 = us.crearAutor("lean", true);
-            Autor a2 = us.crearAutor("marco", true);
-            Editorial e2 = es.crearEditorial("Marco polo", true);
+          //  Autor a1 = us.crearAutor("lean", true);   
+           // Editorial e2 = es.crearEditorial("Marco polo", true);
+            
         //    System.out.println(ls.buscarLibroAutor("marco"));
-      
-            //ls.crearLibro(a2, e2);
+      String nombreAut,nombreEdit;
+    int op;
+            do {
+                System.out.println("ingrese que desea hacer: \n"
+                        + "1.Crear Libro\n"
+                        + "2.salir");
+                       op = sc.nextInt();
+                
+                switch (op) {
+                    case 1:
+                        System.out.println("Cual es el nombre del autor");
+                        nombreAut = sc.next();
+                       Autor a = us.crearAutor(nombreAut,true);
+                        
+                    
+                        System.out.println("Cual es el nombre de la Editorial");
+                        nombreEdit = sc.next();
+                        Editorial edit = es.crearEditorial(nombreEdit,true);
+                        
+                    
+                        ls.crearLibro(a, edit);
+                        break;
+                    case 2: 
+                        System.out.println("saliendo...");
+                        break;
+                }
+            } while (op!=2);
+
 
             //ls.eliminarPorID("bf8ba026-bd8c-40e7-981c-22fc0e1e4e83");
           
