@@ -25,49 +25,26 @@ public class Libreria {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
         EntityManager em = emf.createEntityManager();
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         AutorService us = new AutorService();
         LibroService ls = new LibroService();
         EditorialService es = new EditorialService();
 
-
         try {
-          //  Autor a1 = us.crearAutor("lean", true);   
-           // Editorial e2 = es.crearEditorial("Marco polo", true);
-            
-        //    System.out.println(ls.buscarLibroAutor("marco"));
-      String nombreAut,nombreEdit;
-    int op;
-            do {
-                System.out.println("ingrese que desea hacer: \n"
-                        + "1.Crear Libro\n"
-                        + "2.salir");
-                       op = sc.nextInt();
-                
-                switch (op) {
-                    case 1:
-                        System.out.println("Cual es el nombre del autor");
-                        nombreAut = sc.next();
-                       Autor a = us.crearAutor(nombreAut,true);
-                        
-                    
-                        System.out.println("Cual es el nombre de la Editorial");
-                        nombreEdit = sc.next();
-                        Editorial edit = es.crearEditorial(nombreEdit,true);
-                        
-                    
-                        ls.crearLibro(a, edit);
-                        break;
-                    case 2: 
-                        System.out.println("saliendo...");
-                        break;
-                }
-            } while (op!=2);
-
-
-            //ls.eliminarPorID("bf8ba026-bd8c-40e7-981c-22fc0e1e4e83");
-          
+//            Autor a1 = us.crearAutor("lean", true);
+//            Editorial e2 = es.crearEditorial("Marco polo", true);
+//
+//            ls.crearLibro(a1, e2);
+//            Autor a2 = us.crearAutor("jose", true);
+//            Editorial e3 = es.crearEditorial("Cluster", true);
+//
+//            ls.crearLibro(a2, e3);
+//            Autor a3 = us.crearAutor("bsr", true);
+//            Editorial e4 = es.crearEditorial("sdw", true);
+//
+//            ls.crearLibro(a3, e4);
+          ls.buscarLibroAutor("jose");
         } catch (Exception e) {
             System.out.println(e);
         }

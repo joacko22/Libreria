@@ -24,8 +24,8 @@ public class LibroService {
     public void crearLibro(Autor a, Editorial edit) throws Exception {
         Scanner sc = new Scanner(System.in).useDelimiter("\n");
         try {
-            String op;
-            do {
+           
+            
                 Libro lib = new Libro();
                 lib.setId(UUID.randomUUID().toString());
                 System.out.println("ingrese el titulo");
@@ -50,10 +50,7 @@ public class LibroService {
                
                 lib.setEdit(edit);
                 ldao.crearLibro(lib);
-                System.out.println("desea crear mas libros S/N");
-                op = sc.next().toLowerCase();
-            } while (op.equals("s"));
-
+          
         } catch (Exception e) {
             System.out.println(e);
             throw new Exception("error en crear libro");
@@ -84,7 +81,7 @@ public class LibroService {
                 System.out.println("Debe indicar autor");
             }
             List<Libro> libro = ldao.buscarLibroAutor(autor1);
-
+            System.out.println(libro);
             if(libro == null){
                 System.out.println("No hay libro para lo buscado");
             }

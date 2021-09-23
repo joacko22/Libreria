@@ -50,7 +50,7 @@ public class LibroDao {
                 System.out.println("Debe indicar datos");
             }
             List<Libro> libros =  em.createQuery("Select l from Libro l, Autor a where a.nombre = :autor and l.autor.nombre = :autor").setParameter("autor", autor1).getResultList();
-
+         
             return libros;
 
 }
